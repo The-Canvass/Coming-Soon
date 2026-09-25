@@ -165,7 +165,7 @@ export default function ComingSoonPage() {
 
         {/* Coming Soon Text */}
         <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-4">
-          Coming <span className="font-typewriter text-macaw-blue drop-shadow-[0_0_25px_rgba(28,176,246,0.5)]">Soon</span>
+          Coming Soon
         </h2>
 
         {/* Subtle Tagline */}
