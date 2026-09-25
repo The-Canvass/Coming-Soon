@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "American Typewriter";
+  src: url("/fonts/American-Typewriter-Regular.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 240 5% 7%; /* Deep obsidian #090a0f */
+    --foreground: 0 0% 98%;
+    --card: 240 5% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 5% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 220 42% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 198 93% 54%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 220 55% 78%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 198 93% 54%;
+    --radius: 12px;
+
+    /* The Canvas Brand RGB tokens */
+    --brand: 74 109 179; /* #4a6db3 */
+    --brand-dark: 20 51 99; /* #143363 */
+    --brand-soft: 169 189 230; /* #a9bde6 */
+    --brand-wash: 30 42 68; /* #1e2a44 */
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-macaw-blue/30 selection:text-white;
+    font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
+    background-color: #070a13;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Tactile Physical-feel Cards */
+  .card-tactile {
+    @apply rounded-tactile border border-slate-800/80 bg-midnight-card/80 backdrop-blur-xl
+           transition-all duration-300 hover:border-brand-soft/50 hover:shadow-lg hover:shadow-brand-dark/20;
+  }
+
+  /* Tactile Physical-feel 3D Buttons */
+  .btn-tactile-primary {
+    @apply relative inline-flex items-center justify-center gap-2 font-bold rounded-tactile select-none cursor-pointer
+           text-white bg-canvas-navy border-b-4 border-canvas-navy-dark transition-all duration-100
+           hover:brightness-110 active:translate-y-[2px] active:border-b-2;
+  }
+
+  .btn-tactile-cyan {
+    @apply relative inline-flex items-center justify-center gap-2 font-extrabold rounded-tactile select-none cursor-pointer
+           text-slate-950 bg-macaw-blue border-b-4 border-macaw-blue-dark transition-all duration-100
+           hover:brightness-110 active:translate-y-[2px] active:border-b-2 shadow-lg shadow-macaw-blue/20;
+  }
+
+  .canvas-container {
+    @apply w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 max-w-canvas;
+  }
+}
+
+@layer utilities {
+  .font-typewriter {
+    font-family: var(--font-american-typewriter), "American Typewriter", AmericanTypewriter, "ITC American Typewriter", Georgia, serif;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Ambient glow animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+.animate-hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}

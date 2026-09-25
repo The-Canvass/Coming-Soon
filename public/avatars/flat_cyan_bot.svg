@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="512" height="512" rx="90" fill="#0284c7"/>
+
+  <!-- Antenna -->
+  <line x1="256" y1="110" x2="256" y2="170" stroke="#f1f5f9" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="256" cy="95" r="22" fill="#38bdf8"/>
+  <circle cx="256" cy="95" r="10" fill="#ffffff"/>
+
+  <!-- Robot Head Base -->
+  <rect x="136" y="170" width="240" height="210" rx="44" fill="#f8fafc"/>
+  <rect x="156" y="190" width="200" height="170" rx="28" fill="#0f172a"/>
+
+  <!-- Ear Bolts -->
+  <rect x="106" y="240" width="30" height="60" rx="12" fill="#94a3b8"/>
+  <rect x="376" y="240" width="30" height="60" rx="12" fill="#94a3b8"/>
+
+  <!-- Digital Eyes -->
+  <rect x="190" y="230" width="38" height="46" rx="8" fill="#38bdf8"/>
+  <rect x="284" y="230" width="38" height="46" rx="8" fill="#38bdf8"/>
+
+  <rect x="196" y="236" width="14" height="14" rx="3" fill="#ffffff"/>
+  <rect x="290" y="236" width="14" height="14" rx="3" fill="#ffffff"/>
+
+  <!-- Pixel / Segmented Smile -->
+  <path d="M206 315 L306 315" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M196 305 L206 315" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M316 305 L306 315" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Neck & Shoulder Base -->
+  <rect x="226" y="380" width="60" height="40" rx="8" fill="#cbd5e1"/>
+  <path d="M140 420 Q256 460 372 420 L392 512 L120 512 Z" fill="#0369a1"/>
+</svg>

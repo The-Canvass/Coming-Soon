@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="512" height="512" rx="90" fill="#ea580c"/>
+  
+  <!-- Owl Body -->
+  <path d="M128 340 C128 210, 384 210, 384 340 C384 430, 340 470, 256 470 C172 470, 128 430, 128 340 Z" fill="#fed7aa"/>
+  
+  <!-- Belly Feathers -->
+  <ellipse cx="256" cy="380" rx="70" ry="60" fill="#ffffff" opacity="0.9"/>
+  <path d="M236 360 Q256 375 276 360" stroke="#ea580c" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M226 385 Q256 400 286 385" stroke="#ea580c" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M236 410 Q256 425 276 410" stroke="#ea580c" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+  <!-- Wings -->
+  <path d="M128 310 C100 350, 100 420, 150 440 C140 400, 130 350, 128 310 Z" fill="#c2410c"/>
+  <path d="M384 310 C412 350, 412 420, 362 440 C372 400, 382 350, 384 310 Z" fill="#c2410c"/>
+
+  <!-- Face Discs (White background for eyes) -->
+  <circle cx="196" cy="240" r="64" fill="#ffffff"/>
+  <circle cx="316" cy="240" r="64" fill="#ffffff"/>
+
+  <!-- Spectacles Frames -->
+  <circle cx="196" cy="240" r="56" fill="none" stroke="#431407" stroke-width="12"/>
+  <circle cx="316" cy="240" r="56" fill="none" stroke="#431407" stroke-width="12"/>
+  <path d="M246 240 L266 240" stroke="#431407" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Pupils -->
+  <circle cx="204" cy="240" r="24" fill="#431407"/>
+  <circle cx="308" cy="240" r="24" fill="#431407"/>
+  <!-- Catchlights -->
+  <circle cx="196" cy="232" r="8" fill="#ffffff"/>
+  <circle cx="300" cy="232" r="8" fill="#ffffff"/>
+
+  <!-- Beak -->
+  <polygon points="256,260 236,295 276,295" fill="#f97316"/>
+  <polygon points="256,310 236,295 276,295" fill="#c2410c"/>
+
+  <!-- Graduation Cap / Scholar Hat -->
+  <polygon points="256,70 390,130 256,175 122,130" fill="#1e1b4b"/>
+  <rect x="206" y="150" width="100" height="40" rx="6" fill="#0f172a"/>
+  <!-- Tassel -->
+  <circle cx="256" cy="120" r="10" fill="#facc15"/>
+  <path d="M256 120 Q320 135 345 175" stroke="#facc15" stroke-width="6" fill="none"/>
+  <rect x="338" y="175" width="14" height="30" rx="3" fill="#facc15"/>
+</svg>
