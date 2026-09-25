@@ -31,7 +31,7 @@ export default function ComingSoonPage() {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = window.innerWidth < 768 ? 35 : 70;
+    const count = window.innerWidth < 768 ? 35 : 75;
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -119,6 +119,7 @@ export default function ComingSoonPage() {
 
   return (
     <main className="relative min-h-screen w-full bg-[#070a13] text-foreground flex items-center justify-center selection:bg-macaw-blue/30 selection:text-white overflow-hidden p-6">
+      
       {/* Background Interactive Starfield Canvas */}
       <canvas
         ref={canvasRef}
@@ -128,7 +129,7 @@ export default function ComingSoonPage() {
 
       {/* Ambient Mesh Glow Orbs */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,#1cb0f6_0%,rgba(20,51,99,0)_70%)] blur-[120px] opacity-30 animate-pulse-glow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-[radial-gradient(circle,#1cb0f6_0%,rgba(20,51,99,0)_70%)] blur-[120px] opacity-30 animate-pulse-glow" />
         <div className="absolute top-[20%] right-[15%] w-[450px] h-[450px] rounded-full bg-[radial-gradient(circle,#1f4585_0%,rgba(12,33,70,0)_70%)] blur-[100px] opacity-25" />
       </div>
 
@@ -139,35 +140,36 @@ export default function ComingSoonPage() {
       />
 
       {/* Center Minimalist Coming Soon Presentation */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-md mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
         
-        {/* The Canvas Circular Pencil Logo with glowing backdrop */}
-        <div className="relative mb-8 sm:mb-10 group">
-          <div className="absolute inset-0 rounded-full bg-macaw-blue/30 blur-2xl scale-110 animate-pulse-glow" />
+        {/* High-Resolution 1:1 Circular Logo with Crisp Vector-grade Scaling */}
+        <div className="relative mb-8 sm:mb-10 flex justify-center items-center">
+          <div className="absolute inset-0 rounded-full bg-macaw-blue/25 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
           <div className="relative z-10 animate-hero-float">
             <Image
-              src="/brand/Tab_Thumbnail.png"
+              src="/brand/the-canvas-logo.png"
               alt="The Canvas"
-              width={160}
-              height={160}
+              width={400}
+              height={400}
               priority
-              className="w-28 h-28 sm:w-36 sm:h-36 rounded-full shadow-2xl drop-shadow-[0_15px_35px_rgba(28,176,246,0.4)] transition-transform duration-300 group-hover:scale-105"
+              quality={100}
+              className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-contain shadow-2xl drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
             />
           </div>
         </div>
 
         {/* Brand Name */}
-        <h1 className="text-sm sm:text-base font-extrabold uppercase tracking-[0.25em] text-brand-soft mb-3">
+        <h1 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.3em] text-brand-soft mb-3">
           The Canvas
         </h1>
 
         {/* Coming Soon Text */}
-        <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tightest leading-tight font-display mb-4">
+        <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-4">
           Coming <span className="font-typewriter text-macaw-blue drop-shadow-[0_0_25px_rgba(28,176,246,0.5)]">Soon</span>
         </h2>
 
-        {/* Subtle tagline */}
-        <p className="text-xs sm:text-sm text-slate-400 tracking-wide max-w-xs leading-relaxed">
+        {/* Subtle Tagline */}
+        <p className="text-xs sm:text-sm text-slate-400 tracking-wide max-w-xs sm:max-w-sm leading-relaxed">
           Something extraordinary is in the making.
         </p>
 
