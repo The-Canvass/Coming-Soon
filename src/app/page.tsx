@@ -142,31 +142,38 @@ export default function ComingSoonPage() {
       {/* Center Minimalist Coming Soon Presentation */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
         
-        {/* High-Resolution 1:1 Circular Logo with Crisp Vector-grade Scaling */}
-        <div className="relative mb-8 sm:mb-10 flex justify-center items-center">
-          <div className="absolute inset-0 rounded-full bg-macaw-blue/25 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
-          <div className="relative z-10 animate-hero-float">
+        {/* The Canvas Circular Pencil Logo (Static, no jump/float) */}
+        <div className="relative mb-6 sm:mb-8 flex justify-center items-center">
+          <div className="absolute inset-0 rounded-full bg-macaw-blue/20 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
+          <div className="relative z-10">
             <Image
               src="/brand/the-canvas-logo.png"
-              alt="The Canvas"
+              alt="The Canvas Icon"
               width={400}
               height={400}
               priority
               quality={100}
-              className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-contain shadow-2xl drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
+              className="w-32 h-32 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full object-contain shadow-2xl drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
             />
           </div>
         </div>
 
-        {/* Brand Name */}
-        <h1 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.3em] text-brand-soft mb-3">
-          The Canvas
-        </h1>
+        {/* Official Brand Wordmark */}
+        <div className="relative mb-4 flex justify-center items-center">
+          <Image
+            src="/brand/Main Wordmark White.png"
+            alt="The Canvas Wordmark"
+            width={260}
+            height={40}
+            priority
+            className="h-7 sm:h-9 w-auto object-contain select-none drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]"
+          />
+        </div>
 
         {/* Coming Soon Text */}
-        <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-4">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-4">
           Coming Soon
-        </h2>
+        </h1>
 
         {/* Subtle Tagline */}
         <p className="text-xs sm:text-sm text-slate-400 tracking-wide max-w-xs sm:max-w-sm leading-relaxed">
