@@ -48,8 +48,12 @@ export const metadata: Metadata = {
     "STEM",
   ],
   icons: {
-    icon: "/brand/Tab_Thumbnail.png",
-    apple: "/brand/Tab_Thumbnail.png",
+    icon: [
+      { url: "/brand/the-canvas-logo.png", sizes: "any" },
+      { url: "/brand/the-canvas-logo.png", type: "image/png" }
+    ],
+    shortcut: "/brand/the-canvas-logo.png",
+    apple: "/brand/the-canvas-logo.png",
   },
   openGraph: {
     title: "The Canvas — The Next-Generation Learning Universe | Coming Soon",

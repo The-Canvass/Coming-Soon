@@ -142,32 +142,20 @@ export default function ComingSoonPage() {
       {/* Center Minimalist Coming Soon Presentation */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
         
-        {/* The Canvas Circular Pencil Logo (Static, no jump/float) */}
-        <div className="relative mb-6 sm:mb-8 flex justify-center items-center">
-          <div className="absolute inset-0 rounded-full bg-macaw-blue/20 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
+        {/* The Canvas Brand Logo */}
+        <div className="relative mb-8 sm:mb-10 flex justify-center items-center">
+          <div className="absolute inset-0 bg-macaw-blue/15 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
           <div className="relative z-10">
             <Image
-              src="/brand/the-canvas-logo.png"
-              alt="The Canvas Icon"
-              width={400}
-              height={400}
+              src="/brand/Navbar.png"
+              alt="The Canvas"
+              width={480}
+              height={216}
               priority
               quality={100}
-              className="w-32 h-32 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full object-contain shadow-2xl drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
+              className="h-20 sm:h-28 md:h-32 w-auto object-contain drop-shadow-[0_15px_35px_rgba(28,176,246,0.3)] select-none pointer-events-none"
             />
           </div>
-        </div>
-
-        {/* Official Brand Wordmark */}
-        <div className="relative mb-4 flex justify-center items-center">
-          <Image
-            src="/brand/Main Wordmark White.png"
-            alt="The Canvas Wordmark"
-            width={260}
-            height={40}
-            priority
-            className="h-7 sm:h-9 w-auto object-contain select-none drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]"
-          />
         </div>
 
         {/* Coming Soon Text */}
