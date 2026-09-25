@@ -118,7 +118,7 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full bg-[#070a13] text-foreground flex items-center justify-center selection:bg-macaw-blue/30 selection:text-white overflow-hidden p-6">
+    <main className="relative h-[100dvh] max-h-[100dvh] w-full bg-[#070a13] text-foreground flex items-center justify-center selection:bg-macaw-blue/30 selection:text-white overflow-hidden p-4 sm:p-6 select-none touch-none overscroll-none">
       
       {/* Background Interactive Starfield Canvas */}
       <canvas
@@ -143,7 +143,7 @@ export default function ComingSoonPage() {
       <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
         
         {/* The Canvas Vertical Emblem Logo */}
-        <div className="relative mb-8 sm:mb-10 flex justify-center items-center">
+        <div className="relative mb-5 sm:mb-8 flex justify-center items-center">
           <div className="absolute inset-0 bg-macaw-blue/20 blur-3xl scale-125 animate-pulse-glow pointer-events-none" />
           <div className="relative z-10">
             <Image
@@ -153,13 +153,13 @@ export default function ComingSoonPage() {
               height={715}
               priority
               quality={100}
-              className="h-44 sm:h-56 md:h-64 lg:h-72 w-auto object-contain drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
+              className="h-36 xs:h-44 sm:h-56 md:h-64 lg:h-72 w-auto object-contain drop-shadow-[0_20px_45px_rgba(28,176,246,0.35)] select-none pointer-events-none"
             />
           </div>
         </div>
 
         {/* Coming Soon Text */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-3">
+        <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tightest leading-tight font-display mb-2.5 sm:mb-3">
           Coming Soon
         </h1>
 
