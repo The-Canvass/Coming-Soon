@@ -392,12 +392,6 @@ export default function ComingSoonPage() {
       {/* Central Content Box */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto py-2">
         
-        {/* Minimalist Typographic Brand Badge (No LED) */}
-        <div className="mb-4 sm:mb-6">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.025] border border-white/[0.07] text-[10.5px] sm:text-[11px] font-medium tracking-[0.28em] uppercase text-slate-300/80 font-space backdrop-blur-md shadow-sm">
-            THE CANVAS
-          </span>
-        </div>
 
         {/* The Canvas Emblem Staging with Celestial Orbital Rings, Satellites & Levitation */}
         <div className="relative mb-4 sm:mb-6 flex justify-center items-center">
