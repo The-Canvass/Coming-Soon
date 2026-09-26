@@ -199,27 +199,27 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Central Content Box */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto py-2">
         
         {/* Minimalist Typographic Brand Badge (No LED) */}
-        <div className="mb-6 sm:mb-8">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.025] border border-white/[0.07] text-[11px] font-medium tracking-[0.3em] uppercase text-slate-300/80 font-space backdrop-blur-md shadow-sm">
+        <div className="mb-4 sm:mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.025] border border-white/[0.07] text-[10.5px] sm:text-[11px] font-medium tracking-[0.28em] uppercase text-slate-300/80 font-space backdrop-blur-md shadow-sm">
             THE CANVAS
           </span>
         </div>
 
         {/* The Canvas Emblem Staging with Celestial Orbital Rings & Levitation */}
-        <div className="relative mb-6 sm:mb-8 flex justify-center items-center">
+        <div className="relative mb-4 sm:mb-6 flex justify-center items-center">
           
           {/* Outer Delicate Celestial Orbital Ring */}
           <div 
-            className="absolute w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[380px] sm:h-[380px] rounded-full border border-sky-400/[0.07] border-dashed animate-spin-slow pointer-events-none"
+            className="absolute w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[330px] sm:h-[330px] rounded-full border border-sky-400/[0.07] border-dashed animate-spin-slow pointer-events-none"
             aria-hidden="true"
           />
 
           {/* Inner Reverse Orbital Ring with Fine Axis Ticks */}
           <div 
-            className="absolute w-[220px] h-[220px] xs:w-[250px] xs:h-[250px] sm:w-[290px] sm:h-[290px] rounded-full border border-white/[0.04] animate-spin-reverse-slow pointer-events-none"
+            className="absolute w-[190px] h-[190px] xs:w-[220px] xs:h-[220px] sm:w-[260px] sm:h-[260px] rounded-full border border-white/[0.04] animate-spin-reverse-slow pointer-events-none"
             aria-hidden="true"
           />
 
@@ -231,25 +231,27 @@ export default function ComingSoonPage() {
               width={340}
               height={715}
               priority
-              quality={100}
-              className="h-36 xs:h-44 sm:h-52 md:h-60 w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.65)] drop-shadow-[0_8px_25px_rgba(28,176,246,0.12)] select-none pointer-events-none"
+              quality={90}
+              className="h-32 xs:h-36 sm:h-44 md:h-52 lg:h-56 w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.65)] drop-shadow-[0_8px_25px_rgba(28,176,246,0.12)] select-none pointer-events-none"
             />
           </div>
         </div>
 
         {/* Luminous Horizon Glow Line */}
         <div 
-          className="w-48 sm:w-64 h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-transparent mb-5 pointer-events-none"
+          className="w-40 sm:w-56 h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-transparent mb-3.5 sm:mb-4 pointer-events-none"
           aria-hidden="true"
         />
 
-        {/* Coming Soon Headline with Outfit Font & Silver Shimmer */}
-        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none font-display mb-3.5 shimmer-text">
-          Coming Soon
-        </h1>
+        {/* Coming Soon Headline with Outfit Font, Silver Shimmer & Generous Descender Clearance */}
+        <div className="flex justify-center w-full">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight font-display mb-1.5 sm:mb-2 shimmer-text">
+            Coming Soon
+          </h1>
+        </div>
 
         {/* Refined Plus Jakarta Sans Subtitle */}
-        <p className="text-xs sm:text-sm md:text-[15px] text-slate-400 font-sans font-normal tracking-wide max-w-xs sm:max-w-sm leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-[15px] text-slate-400 font-sans font-normal tracking-wide max-w-xs sm:max-w-sm leading-relaxed mt-1">
           Something extraordinary is in the making.
         </p>
 

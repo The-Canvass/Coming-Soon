@@ -156,6 +156,9 @@
 }
 
 .shimmer-text {
+  display: inline-block;
+  padding-bottom: 0.12em;
+  line-height: 1.18;
   background: linear-gradient(
     115deg,
     #ffffff 0%,
@@ -170,5 +173,6 @@
   -webkit-text-fill-color: transparent;
   animation: textShimmer 9s ease-in-out infinite;
 }
+
 
 
