@@ -440,11 +440,6 @@ export default function ComingSoonPage() {
           </div>
         </div>
 
-        {/* Luminous Horizon Glow Line */}
-        <div 
-          className="w-40 sm:w-56 h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-transparent mb-3.5 sm:mb-4 pointer-events-none"
-          aria-hidden="true"
-        />
 
         {/* Coming Soon Headline with Outfit Font, Pure Silver/Platinum Shimmer & Descender Clearance */}
         <div className="flex justify-center w-full">
