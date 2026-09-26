@@ -1,36 +1,27 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Nunito, Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Outfit, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const nunito = Nunito({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-nunito",
+  variable: "--font-outfit",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-plus-jakarta",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const americanTypewriter = localFont({
-  src: [
-    {
-      path: "./fonts/American-Typewriter-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/American-Typewriter-Regular.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-american-typewriter",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +41,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/brand/the-canvas-logo.png", sizes: "any" },
-      { url: "/brand/the-canvas-logo.png", type: "image/png" }
+      { url: "/brand/the-canvas-logo.png", type: "image/png" },
     ],
     shortcut: "/brand/the-canvas-logo.png",
     apple: "/brand/the-canvas-logo.png",
@@ -71,9 +62,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${nunito.variable} ${inter.variable} ${americanTypewriter.variable}`}
+      className={`dark ${outfit.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="min-h-screen bg-[#070a13] text-foreground font-sans antialiased selection:bg-macaw-blue/30 selection:text-white">
+      <body className="min-h-screen bg-[#05070d] text-foreground font-sans antialiased selection:bg-macaw-blue/30 selection:text-white">
         {children}
       </body>
     </html>

@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ComingSoonPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Ambient Starfield & Constellation Canvas
+  // Ethereal Stardust & Constellation Field
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -14,8 +14,8 @@ export default function ComingSoonPage() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width = window.innerWidth;
+    let height = window.innerHeight;
 
     interface Particle {
       x: number;
@@ -25,7 +25,8 @@ export default function ComingSoonPage() {
       vy: number;
       color: string;
       baseAlpha: number;
-      alpha: number;
+      pulseSpeed: number;
+      pulseOffset: number;
     }
 
     const particles: Particle[] = [];
@@ -43,31 +44,30 @@ export default function ComingSoonPage() {
 
     setupCanvas();
 
-    const particleCount = width < 768 ? 40 : 80;
+    const particleCount = width < 768 ? 45 : 85;
     particles.length = 0;
     for (let i = 0; i < particleCount; i++) {
-      const isBlue = Math.random() > 0.45;
+      const isCyan = Math.random() > 0.55;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.6 + 0.6,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        color: isBlue ? "28, 176, 246" : "148, 163, 184",
-        baseAlpha: Math.random() * 0.35 + 0.15,
-        alpha: Math.random() * 0.35 + 0.15,
+        radius: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        color: isCyan ? "28, 176, 246" : "203, 213, 225",
+        baseAlpha: Math.random() * 0.35 + 0.12,
+        pulseSpeed: Math.random() * 0.02 + 0.008,
+        pulseOffset: Math.random() * Math.PI * 2,
       });
     }
 
-    const handleResize = () => {
-      setupCanvas();
-    };
+    const handleResize = () => setupCanvas();
     window.addEventListener("resize", handleResize);
 
     const mouse = {
       x: null as number | null,
       y: null as number | null,
-      radius: 130,
+      radius: 140,
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -83,7 +83,9 @@ export default function ComingSoonPage() {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
+    let time = 0;
     const render = () => {
+      time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
       // Render & update particles
@@ -97,13 +99,17 @@ export default function ComingSoonPage() {
         if (p.y < 0) p.y = height;
         else if (p.y > height) p.y = 0;
 
-        let currentAlpha = p.baseAlpha;
+        // Subtle organic breathing alpha
+        const breathingAlpha =
+          p.baseAlpha + Math.sin(time * p.pulseSpeed * 100 + p.pulseOffset) * 0.08;
+        let currentAlpha = Math.max(0.05, breathingAlpha);
+
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - p.x;
           const dy = mouse.y - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouse.radius) {
-            currentAlpha = Math.min(0.85, p.baseAlpha + (1 - dist / mouse.radius) * 0.5);
+            currentAlpha = Math.min(0.85, currentAlpha + (1 - dist / mouse.radius) * 0.5);
           }
         }
 
@@ -112,21 +118,21 @@ export default function ComingSoonPage() {
         ctx.fillStyle = `rgba(${p.color}, ${currentAlpha})`;
         ctx.fill();
 
-        // Connect nearby particles
+        // Connect nearby particles with delicate constellation lines
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 95;
+          const maxDist = 90;
 
           if (dist < maxDist) {
-            const lineAlpha = (1 - dist / maxDist) * 0.12;
+            const lineAlpha = (1 - dist / maxDist) * 0.1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = `rgba(28, 176, 246, ${lineAlpha})`;
-            ctx.lineWidth = 0.75;
+            ctx.lineWidth = 0.65;
             ctx.stroke();
           }
         }
@@ -146,71 +152,104 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <main className="relative min-h-[100dvh] h-[100dvh] w-full bg-[#06080e] text-foreground flex items-center justify-center selection:bg-macaw-blue/30 selection:text-white overflow-hidden p-6 select-none">
+    <main className="relative min-h-[100dvh] h-[100dvh] w-full bg-[#05070d] text-foreground flex items-center justify-center selection:bg-macaw-blue/30 selection:text-white overflow-hidden p-6 select-none">
       
-      {/* Background Interactive Constellation Canvas */}
+      {/* Background Interactive Stardust Canvas */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-0 opacity-70"
+        className="fixed inset-0 pointer-events-none z-0 opacity-75"
         aria-hidden="true"
       />
 
-      {/* Top Overhead Spotlight */}
+      {/* Atmospheric Overhead Spotlight */}
       <div 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] pointer-events-none z-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(28,176,246,0.12),transparent_75%)] blur-2xl" 
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] pointer-events-none z-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(28,176,246,0.11),transparent_75%)] blur-2xl" 
         aria-hidden="true" 
       />
 
-      {/* Center Atmospheric Ambient Aura */}
+      {/* Center Deep Atmospheric Aura */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(28,176,246,0.18)_0%,rgba(20,51,99,0.08)_50%,transparent_70%)] blur-[90px] animate-pulse-glow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(28,176,246,0.16)_0%,rgba(20,51,99,0.06)_50%,transparent_70%)] blur-[95px] animate-pulse-glow" />
       </div>
 
-      {/* Subtle Depth Grid */}
+      {/* Subtle Geometric Matrix Grid */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_65%_55%_at_50%_50%,black_20%,transparent_85%)]"
+        className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:52px_52px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black_20%,transparent_85%)]"
         aria-hidden="true"
       />
 
-      {/* Viewport Edge Vignette */}
+      {/* Cinematic Edge Vignette */}
       <div 
-        className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(4,6,10,0.85)_100%)]" 
+        className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(3,5,9,0.88)_100%)]" 
         aria-hidden="true" 
       />
 
-      {/* Central Content Box - Minimalist, Perfectly Balanced */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-md sm:max-w-lg mx-auto">
+      {/* Architectural Corner Accents */}
+      <div className="fixed top-6 left-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
+        + 01
+      </div>
+      <div className="fixed top-6 right-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
+        TCA // EXP
+      </div>
+      <div className="fixed bottom-6 left-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
+        SYS.2026
+      </div>
+      <div className="fixed bottom-6 right-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
+        +
+      </div>
+
+      {/* Central Content Box */}
+      <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
         
-        {/* Subtle Brand Tag Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md mb-6 sm:mb-8 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-macaw-blue animate-pulse" />
-          <span className="text-[10.5px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-slate-300 font-display">
-            The Canvas
+        {/* Minimalist Typographic Brand Badge (No LED) */}
+        <div className="mb-6 sm:mb-8">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.025] border border-white/[0.07] text-[11px] font-medium tracking-[0.3em] uppercase text-slate-300/80 font-space backdrop-blur-md shadow-sm">
+            THE CANVAS
           </span>
         </div>
 
-        {/* The Canvas Emblem Logo with Smooth Gentle Levitation */}
-        <div className="relative mb-6 sm:mb-8 flex justify-center items-center animate-float-gentle">
-          <div className="relative z-10">
+        {/* The Canvas Emblem Staging with Celestial Orbital Rings & Levitation */}
+        <div className="relative mb-6 sm:mb-8 flex justify-center items-center">
+          
+          {/* Outer Delicate Celestial Orbital Ring */}
+          <div 
+            className="absolute w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[380px] sm:h-[380px] rounded-full border border-sky-400/[0.07] border-dashed animate-spin-slow pointer-events-none"
+            aria-hidden="true"
+          />
+
+          {/* Inner Reverse Orbital Ring with Fine Axis Ticks */}
+          <div 
+            className="absolute w-[220px] h-[220px] xs:w-[250px] xs:h-[250px] sm:w-[290px] sm:h-[290px] rounded-full border border-white/[0.04] animate-spin-reverse-slow pointer-events-none"
+            aria-hidden="true"
+          />
+
+          {/* Gentle Floating Emblem Logo */}
+          <div className="relative z-10 animate-float-gentle">
             <Image
               src="/brand/the-canvas-vertical-logo.png"
               alt="The Canvas Academy"
-              width={320}
-              height={670}
+              width={340}
+              height={715}
               priority
               quality={100}
-              className="h-36 xs:h-44 sm:h-52 md:h-60 w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)] drop-shadow-[0_8px_20px_rgba(28,176,246,0.12)] select-none pointer-events-none transition-transform duration-500 hover:scale-105"
+              className="h-36 xs:h-44 sm:h-52 md:h-60 w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.65)] drop-shadow-[0_8px_25px_rgba(28,176,246,0.12)] select-none pointer-events-none"
             />
           </div>
         </div>
 
-        {/* Coming Soon Headline with Refined Shimmer Gradient */}
-        <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight font-display mb-3 shimmer-text">
+        {/* Luminous Horizon Glow Line */}
+        <div 
+          className="w-48 sm:w-64 h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-transparent mb-5 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        {/* Coming Soon Headline with Outfit Font & Silver Shimmer */}
+        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none font-display mb-3.5 shimmer-text">
           Coming Soon
         </h1>
 
-        {/* Minimalist Subtitle */}
-        <p className="text-xs sm:text-sm md:text-[15px] text-slate-400 font-normal tracking-wide max-w-xs sm:max-w-sm leading-relaxed">
+        {/* Refined Plus Jakarta Sans Subtitle */}
+        <p className="text-xs sm:text-sm md:text-[15px] text-slate-400 font-sans font-normal tracking-wide max-w-xs sm:max-w-sm leading-relaxed">
           Something extraordinary is in the making.
         </p>
 

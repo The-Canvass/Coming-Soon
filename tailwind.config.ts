@@ -89,17 +89,9 @@ const config: Config = {
         tightest: "-0.02em",
       },
       fontFamily: {
-        sans: ["var(--font-nunito)", "system-ui", "-apple-system", "sans-serif"],
-        display: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
-        typewriter: [
-          "var(--font-american-typewriter)",
-          '"American Typewriter"',
-          "AmericanTypewriter",
-          '"ITC American Typewriter"',
-          '"Courier New"',
-          "Courier",
-          "serif",
-        ],
+        sans: ["var(--font-plus-jakarta)", "system-ui", "-apple-system", "sans-serif"],
+        display: ["var(--font-outfit)", "system-ui", "-apple-system", "sans-serif"],
+        space: ["var(--font-space-grotesk)", "monospace", "sans-serif"],
       },
       maxWidth: {
         canvas: "1440px",
