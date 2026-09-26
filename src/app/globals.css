@@ -155,24 +155,66 @@
   }
 }
 
+@keyframes auroraShift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.20;
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(1.08);
+    opacity: 0.32;
+  }
+}
+
+.animate-aurora {
+  animation: auroraShift 14s ease-in-out infinite;
+}
+
+@keyframes orbitDot {
+  0% {
+    transform: rotate(0deg) translateX(165px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(165px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitDotReverse {
+  0% {
+    transform: rotate(360deg) translateX(130px) rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg) translateX(130px) rotate(0deg);
+  }
+}
+
+.animate-orbit-dot {
+  animation: orbitDot 35s linear infinite;
+}
+
+.animate-orbit-dot-reverse {
+  animation: orbitDotReverse 45s linear infinite;
+}
+
 .shimmer-text {
   display: inline-block;
   padding-bottom: 0.12em;
   line-height: 1.18;
   background: linear-gradient(
-    115deg,
-    #ffffff 0%,
-    #f8fafc 20%,
-    #7dd3fc 45%,
-    #ffffff 55%,
+    110deg,
+    #94a3b8 0%,
+    #e2e8f0 25%,
+    #ffffff 48%,
+    #ffffff 54%,
     #cbd5e1 75%,
-    #ffffff 100%
+    #94a3b8 100%
   );
-  background-size: 260% 100%;
+  background-size: 240% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textShimmer 9s ease-in-out infinite;
+  animation: textShimmer 7s ease-in-out infinite;
 }
+
 
 
 
