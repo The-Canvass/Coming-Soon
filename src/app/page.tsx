@@ -375,19 +375,6 @@ export default function ComingSoonPage() {
         aria-hidden="true" 
       />
 
-      {/* Architectural Corner Accents */}
-      <div className="fixed top-6 left-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
-        + 01
-      </div>
-      <div className="fixed top-6 right-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
-        TCA // EXP
-      </div>
-      <div className="fixed bottom-6 left-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
-        SYS.2026
-      </div>
-      <div className="fixed bottom-6 right-6 pointer-events-none z-10 text-slate-600/40 text-[11px] font-space select-none tracking-widest hidden sm:block">
-        +
-      </div>
 
       {/* Central Content Box */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto py-2">
