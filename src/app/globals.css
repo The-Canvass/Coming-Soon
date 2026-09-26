@@ -106,21 +106,50 @@
   }
 }
 
-/* Ambient glow animations */
+/* Ambient glow and subtle float animations */
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(1.08); }
+  0%, 100% { opacity: 0.22; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.05); }
 }
 
 .animate-pulse-glow {
-  animation: pulseGlow 8s ease-in-out infinite;
+  animation: pulseGlow 9s ease-in-out infinite;
 }
 
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1.5deg); }
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
 }
 
-.animate-hero-float {
-  animation: heroFloat 6s ease-in-out infinite;
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
 }
+
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    110deg,
+    #ffffff 0%,
+    #f1f5f9 25%,
+    #93c5fd 48%,
+    #ffffff 55%,
+    #cbd5e1 80%,
+    #ffffff 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 8s ease-in-out infinite;
+}
+
